@@ -1,1 +1,111 @@
-/* Add your CSS here */
+/* General Styles: These rules apply to the whole page. */
+body {
+  margin: 0; /* Removes default spacing around the content */
+  font-family: Arial, Helvetica, sans-serif; /* Sets the font for the page */
+  line-height: 1.6; /* Sets the spacing between lines of text */
+  background-color: #f4f4f4; /* A light gray background for the page */
+  color: #333; /* A dark gray for the text color */
+}
+
+/* Hero Section: Styles for the big blue banner at the top. */
+header {
+  background-color: #0071C5; /* The classic Intel Blue color */
+  color: white; /* Makes the text white so it's readable */
+  text-align: center; /* Centers all the text and the logo */
+  padding: 60px 20px; /* Adds space inside the header (top/bottom and left/right) */
+}
+
+header img {
+  width: 150px; /* Sets the size of the Intel logo */
+  margin-bottom: 20px; /* Adds space below the logo */
+}
+
+header h1 {
+  font-size: 2.5rem; /* Sets the size of the main title */
+  margin: 10px 0; /* Adds a little space above and below the title */
+}
+
+header p {
+  max-width: 700px; /* Prevents the paragraph from getting too wide */
+  margin: 0 auto; /* A trick to center the paragraph */
+  font-size: 1.1rem; /* Sets the size of the paragraph text */
+}
+
+/* Timeline Section: This styles the container that holds all the cards. */
+section {
+  display: flex; /* This is the key! It lines up the cards in a row. */
+  overflow-x: auto; /* Adds the horizontal scrollbar if needed. */
+  gap: 30px; /* Creates space between each card. */
+  padding: 40px; /* Adds space around the entire timeline. */
+  scroll-snap-type: x mandatory; /* Makes scrolling "snap" to each card. */
+}
+
+/* --- Card Styles: These rules apply to each individual card. --- */
+section div {
+  background: white; /* Gives the card a white background. */
+  border: 1px solid #ddd; /* Adds a thin, light gray border. */
+  border-radius: 10px; /* Gives the card rounded corners. */
+  padding: 20px; /* Adds space inside the card, between the content and the border. */
+  width: 260px; /* Sets a fixed, narrower width for each card. */
+  flex: 0 0 auto; /* Prevents cards from shrinking to fit the screen. */
+  scroll-snap-align: start; /* Helps the "snap" feature align correctly. */
+  text-align: center; /* Centers all the text and the image inside the card. */
+  transition: transform 0.3s, box-shadow 0.3s; /* Makes the hover effect animate smoothly. */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Adds a subtle shadow to lift the card off the page. */
+}
+
+/* Image inside card: Styles the image within each card. */
+section div img {
+  width: 100%; /* Makes the image fill the full width of the card. */
+  height: 150px; /* Gives every image the same height for a consistent look. */
+  object-fit: cover; /* Important! Makes the image fill the space without being stretched or squished. */
+  border-radius: 8px; /* Gives the image slightly rounded corners. */
+  margin-bottom: 15px; /* Adds space between the image and the text below it. */
+}
+
+/* Card Titles: Styles the text inside the cards. */
+section h2 { /* This is the year */
+  color: #0071C5; /* Uses Intel Blue for the year. */
+  margin: 0 0 10px 0; /* Removes default space and adds some below. */
+  font-size: 2rem; /* Makes the year text larger and more prominent. */
+}
+
+section h3 { /* This is the event title */
+  margin: 6px 0 12px; /* Adjusts the spacing around the title. */
+}
+
+/* Hover Effect: This happens when you move your mouse over a card. */
+section div:hover {
+  transform: translateY(-5px); /* Lifts the card up slightly. */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Makes the shadow bigger and darker for emphasis. */
+}
+
+/* Footer Note: Styles the "Scroll to view timeline!" text. */
+body > p {
+  text-align: center; /* Centers the text. */
+  font-style: italic; /* Makes the text italic. */
+  padding: 20px; /* Adds space around it. */
+  color: #555; /* A medium gray color. */
+}
+
+/* Responsive: These rules ONLY apply to screens 768px wide or smaller (like phones). */
+@media (max-width: 768px) {
+  section {
+    flex-direction: column; /* This is the magic! It stacks the cards vertically. */
+    overflow-x: hidden; /* Hides the horizontal scrollbar on mobile. */
+    padding: 20px; /* Adjusts the padding for smaller screens. */
+    gap: 20px; /* Sets the vertical space between cards. */
+  }
+
+  section div {
+    width: auto; /* Lets the card take up the full available width. */
+  }
+
+  header {
+    padding: 40px 16px; /* Reduces padding on the header for mobile. */
+  }
+
+  header h1 {
+    font-size: 1.8rem; /* Makes the main title smaller on mobile. */
+  }
+}
